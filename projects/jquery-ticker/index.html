@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>jQuery ticker plugin by Plesin, Radek Pleskac</title>				
+		<style>
+			html, body {
+				height: 100%;
+				margin: 0;
+				padding: 0;
+			}
+			body {				
+				background: #f0f9ff; /* Old browsers */
+				background: -moz-linear-gradient(top, #f0f9ff 0%, #cbebff 47%, #a1dbff 100%); /* FF3.6+ */
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f0f9ff), color-stop(47%,#cbebff), color-stop(100%,#a1dbff)); /* Chrome,Safari4+ */
+				background: -webkit-linear-gradient(top, #f0f9ff 0%,#cbebff 47%,#a1dbff 100%); /* Chrome10+,Safari5.1+ */				
+				background: linear-gradient(top, #f0f9ff 0%,#cbebff 47%,#a1dbff 100%); /* W3C */
+			}
+			div {
+				width: 600px;
+				padding-top: 30px;
+				margin: 0 auto;
+			}
+			h1, h2 { color: #333; text-shadow: 1px 1px 0 #fff; margin: 0; padding: 0;}
+			a, a:active, a:visited { color: #fff; text-decoration: none;}
+			ul {
+				color: #fff;
+				width: 560px;
+				border: 1px solid #111;
+				list-style: none;
+				height: 1.2em;
+				overflow: hidden;
+				border-radius: 3px;				
+			}
+			.gradient {
+				background: rgb(125,126,125); /* Old browsers */
+				background: -moz-linear-gradient(top, rgba(125,126,125,1) 0%, rgba(14,14,14,1) 100%); /* FF3.6+ */
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(125,126,125,1)), color-stop(100%,rgba(14,14,14,1))); /* Chrome,Safari4+ */
+				background: -webkit-linear-gradient(top, rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%); /* Chrome10+,Safari5.1+ */							
+				background: linear-gradient(top, rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%); /* W3C */
+			}
+			.button {  			    
+			    -webkit-border-radius: 15px;  
+			    -moz-border-radius: 15px;  
+			    border-radius: 15px;
+				border: 1px solid #333;  			  
+			    -webkit-box-shadow: 1px 2px 2px rgba(0,0,0,0.6);  
+			    -moz-box-shadow: 1px 2px 2px rgba(0,0,0,0.6);  
+			    box-shadow: 1px 2px 2px rgba(0,0,0,0.6);  			  
+			    color: #000;  			      
+			    display: inline-block;  
+			    padding: 5px 15px;  
+			    outline: none;  
+			    text-shadow: 1px 1px 0 #333;  
+			}
+			.button:hover {
+				background: -moz-linear-gradient(top, rgba(30,30,30,1) 0%, rgba(70,70,70,1) 100%); /* FF3.6+ */
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(30,30,30,1)), color-stop(100%,rgba(70,70,70,1))); /* Chrome,Safari4+ */
+				background: -webkit-linear-gradient(top, rgba(30,30,30,1) 0%,rgba(70,70,70,1) 100%); /* Chrome10+,Safari5.1+ */							
+				background: linear-gradient(top, rgba(30,30,30,1) 0%,rgba(70,70,70,1) 100%); /* W3C */
+			}  				
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<h2>HTML</h2>
+<pre>
+&lt;ul id="ticker1"&gt;
+  &lt;li&gt;1 - First item - Lorem Ipsum is simply dummy text of the printing and typesetting&lt;/li&gt;
+  &lt;li&gt;2 - Second item - Lorem Ipsum is simply dummy text of the printing and typesetting&lt;/li&gt;
+  &lt;li&gt;&lt;a href=""&gt;3 - Third item - Lorem Ipsum is simply dummy text of the printing and typesetting&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=""&gt;4 - Fourth item - Lorem Ipsum is simply dummy text of the printing and typesetting&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;				
+</pre>
+			<p>
+				<h1>Effect fadeIn (default)</h1>
+				<pre>$("#ticker1").ticker();</pre> 
+			</p>
+			<ul id="ticker1" class="gradient">
+				<li>1 - First item - Lorem Ipsum is simply dummy text of the printing and typesetting</li>
+				<li>2 - Second item - Lorem Ipsum is simply dummy text of the printing and typesetting</li>
+				<li><a href="">3 - Third item - Lorem Ipsum is simply dummy text of the printing and typesetting</a></li>
+				<li><a href="">4 - Fourth item - Lorem Ipsum is simply dummy text of the printing and typesetting</a></li>
+			</ul>
+			
+			<p>
+				<h1>Effect slideUp</h1>
+				<pre>$("#ticker2").ticker({ effect: "slideUp"});</pre> 
+			</p>
+			<ul id="ticker2" class="gradient">
+				<li>1 - First item - Lorem Ipsum is simply dummy text of the printing and typesetting</li>
+				<li>2 - Second item - Lorem Ipsum is simply dummy text of the printing and typesetting</li>
+				<li><a href="">3 - Third item - Lorem Ipsum is simply dummy text of the printing and typesetting</a></li>
+				<li><a href="">4 - Fourth item - Lorem Ipsum is simply dummy text of the printing and typesetting</a></li>
+			</ul>
+			
+			<p>
+				<h1>Effect slideDown</h1>
+				<pre>$("#ticker3").ticker({ effect: "slideDown"});</pre> 
+			</p>
+			<ul id="ticker3" class="gradient">
+				<li>1 - First item - Lorem Ipsum is simply dummy text of the printing and typesetting</li>
+				<li>2 - Second item - Lorem Ipsum is simply dummy text of the printing and typesetting</li>
+				<li><a href="">3 - Third item - Lorem Ipsum is simply dummy text of the printing and typesetting</a></li>
+				<li><a href="">4 - Fourth item - Lorem Ipsum is simply dummy text of the printing and typesetting</a></li>
+			</ul>
+			<p>
+				<h1>Options</h1>
+				<pre>
+$.fn.ticker.defaults =  {
+	controls: false, //show controls, to be implemented
+	interval: 3000, //interval to show next item
+	effect: "fadeIn", // available effects: fadeIn, slideUp, slideDown
+	duration: 400 //duration of the change to the next item
+};
+				</pre> 
+			</p>
+			<p>
+				<a class="button gradient" href="https://github.com/Plesin/jquery-ticker" target="_blank">Download from Github</a>
+			</p>
+		</div>		
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+		<script src="jquery.ticker.js"></script>
+		<script>
+			$(document).ready(function(){	
+				$("#ticker1").ticker();
+				$("#ticker2").ticker({ effect: "slideUp", interval: 4000});
+				$("#ticker3").ticker({ effect: "slideDown", interval: 5000});
+				
+			});
+		</script>
+		<script type="text/javascript">	
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-4003600-1']);
+		  _gaq.push(['_trackPageview']);
+		
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();		
+		</script>
+	</body>
+</html>
