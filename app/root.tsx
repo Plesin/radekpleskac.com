@@ -21,12 +21,12 @@ export const meta: MetaFunction = () => ({
 
 export default function App() {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <head>
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="dark:bg-[#14182c] dark:text-slate-300 max-w-7xl mx-auto pt-3 pb-6 px-4 sm:px-6 lg:px-8 text-xl">
         <Outlet />
         <ScrollRestoration />
         <Scripts />
