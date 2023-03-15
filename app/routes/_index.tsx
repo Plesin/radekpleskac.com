@@ -1,4 +1,14 @@
 import Header from '~/components/Header'
+import ProjectPreview from '~/components/ProjectPreview'
+
+const projects = [
+  {
+    title: 'Fotohustopece',
+    desc: 'A photo studio website built with Laravel, Vue3 and webcomponents.',
+    image: 'fotohustopece.webp',
+    slug: 'fotohustopece',
+  },
+]
 
 export default function Index() {
   return (
@@ -15,6 +25,10 @@ export default function Index() {
             currently open for new projects. Please check out the projects
             section or my Github, Linked.
           </p>
+          <h2 className="py-4">Example work:</h2>
+          {projects.map((project) => (
+            <ProjectPreview key={project.slug} {...project} />
+          ))}
         </main>
       </div>
     </>
