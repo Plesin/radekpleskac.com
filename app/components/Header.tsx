@@ -70,13 +70,18 @@ export default function Header() {
               md:pt-0"
           >
             <li>
-              <Link to="/about" className="ml-5 hover:text-[#fda300]">
-                About
+              <Link to="/" className="ml-5 hover:text-[#fda300]">
+                Home
               </Link>
             </li>
             <li>
               <Link to="/projects" className="ml-5 hover:text-[#fda300]">
                 Projects
+              </Link>
+            </li>
+            <li>
+              <Link to="/links" className="ml-5 hover:text-[#fda300]">
+                Links
               </Link>
             </li>
           </ul>
