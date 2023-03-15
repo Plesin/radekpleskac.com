@@ -1,4 +1,4 @@
-# Welcome to Remix!
+# WIP portfolio site built with Remix!
 
 - [Remix Docs](https://remix.run/docs)
 
