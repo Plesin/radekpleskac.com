@@ -15,7 +15,7 @@ export const links: LinksFunction = () => [{ rel: 'stylesheet', href: styles }]
 
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',
-  title: 'New Remix App',
+  title: 'Radek Pleskac | web developer',
   viewport: 'width=device-width,initial-scale=1',
 })
 
@@ -26,7 +26,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="dark:bg-[#14182c] dark:text-slate-300 max-w-7xl mx-auto pt-3 pb-6 px-4 sm:px-6 lg:px-8 text-xl">
+      <body className="dark:bg-[#14213d] dark:text-[#fff] max-w-7xl mx-auto pt-3 pb-6 px-4 sm:px-6 lg:px-8 text-xl">
         <Outlet />
         <ScrollRestoration />
         <Scripts />
