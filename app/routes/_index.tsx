@@ -1,5 +1,6 @@
 import Header from '~/components/Header'
 import ProjectPreview from '~/components/ProjectPreview'
+import { PrismaClient } from '@prisma/client'
 
 const projects = [
   {
@@ -9,6 +10,24 @@ const projects = [
     slug: 'fotohustopece',
   },
 ]
+
+export async function loader() {
+  const prisma = new PrismaClient()
+  const project = await prisma.project.findFirst({
+    orderBy: {
+      createdAt: 'desc',
+    },
+  })
+  // get all images from the project
+  const images = await prisma.image.findMany({
+    where: {
+      projectId: project.id,
+    },
+  })
+  console.log('CLOG ~ loader ~ project:', project, images)
+  await prisma.$disconnect()
+  return project
+}
 
 export default function Index() {
   return (
