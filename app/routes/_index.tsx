@@ -1,35 +1,16 @@
+import { json } from '@remix-run/node'
+import { useLoaderData } from '@remix-run/react'
+
 import Header from '~/components/Header'
 import ProjectPreview from '~/components/ProjectPreview'
-import { PrismaClient } from '@prisma/client'
-
-const projects = [
-  {
-    title: 'Fotohustopece',
-    desc: 'A photo studio website built with Laravel, Vue3 and webcomponents.',
-    image: 'fotohustopece.webp',
-    slug: 'fotohustopece',
-  },
-]
+import { getProjects } from '~/models/projects.server'
 
 export async function loader() {
-  const prisma = new PrismaClient()
-  const project = await prisma.project.findFirst({
-    orderBy: {
-      createdAt: 'desc',
-    },
-  })
-  // get all images from the project
-  const images = await prisma.image.findMany({
-    where: {
-      projectId: project.id,
-    },
-  })
-  console.log('CLOG ~ loader ~ project:', project, images)
-  await prisma.$disconnect()
-  return project
+  return json({ projects: await getProjects() })
 }
 
 export default function Index() {
+  const { projects } = useLoaderData<typeof loader>()
   return (
     <>
       <Header />
@@ -46,7 +27,7 @@ export default function Index() {
           </p>
           <h2 className="py-4">Example work:</h2>
           {projects.map((project) => (
-            <ProjectPreview key={project.slug} {...project} />
+            <ProjectPreview key={project.id} {...project} />
           ))}
         </main>
       </div>
