@@ -4,6 +4,7 @@ CREATE TABLE "Project" (
     "title" TEXT NOT NULL,
     "description" TEXT NOT NULL,
     "content" TEXT NOT NULL,
+    "slug" TEXT NOT NULL DEFAULT '',
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" DATETIME NOT NULL
 );
@@ -19,3 +20,6 @@ CREATE TABLE "Image" (
     "updatedAt" DATETIME NOT NULL,
     CONSTRAINT "Image_projectId_fkey" FOREIGN KEY ("projectId") REFERENCES "Project" ("id") ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Project_slug_key" ON "Project"("slug");

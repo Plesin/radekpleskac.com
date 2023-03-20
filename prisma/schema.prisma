@@ -15,6 +15,7 @@ model Project {
   title String
   description String
   content String
+  slug String @unique @default("")
   images Image[]
 
   createdAt DateTime @default(now())
