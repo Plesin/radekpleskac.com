@@ -13,6 +13,19 @@ async function seed() {
       id: 1,
       title: 'Foto Hustopeče',
       description: 'webová prezentace pro foto studio Hustopeče',
+      slug: 'foto-hustopece',
+      content: 'TODO',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+  })
+
+  await prisma.project.create({
+    data: {
+      id: 2,
+      title: 'Technické Laboratoře Opava',
+      description: 'webová prezentace tlo.cz',
+      slug: 'technicke-laboratorie-opava',
       content: 'TODO',
       createdAt: new Date(),
       updatedAt: new Date(),
@@ -26,6 +39,18 @@ async function seed() {
       width: 800,
       height: 400,
       projectId: 1,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+  })
+
+  await prisma.image.create({
+    data: {
+      id: 2,
+      fileName: 'tlo.cz.webp',
+      width: 800,
+      height: 400,
+      projectId: 2,
       createdAt: new Date(),
       updatedAt: new Date(),
     },
