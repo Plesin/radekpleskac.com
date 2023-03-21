@@ -39,8 +39,6 @@ async function seed() {
       width: 800,
       height: 400,
       projectId: 1,
-      createdAt: new Date(),
-      updatedAt: new Date(),
     },
   })
 
@@ -51,8 +49,6 @@ async function seed() {
       width: 800,
       height: 400,
       projectId: 2,
-      createdAt: new Date(),
-      updatedAt: new Date(),
     },
   })
 
