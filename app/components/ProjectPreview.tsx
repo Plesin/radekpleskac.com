@@ -1,4 +1,4 @@
-import { Project, Image } from '@prisma/client'
+import { Project } from '@prisma/client'
 
 export default function ProjectPreview(project: Project) {
   const { title, description, images, slug } = project
