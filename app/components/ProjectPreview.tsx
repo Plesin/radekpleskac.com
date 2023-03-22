@@ -1,3 +1,4 @@
+import { Link } from '@remix-run/react'
 import { Project } from '@prisma/client'
 
 export default function ProjectPreview(project: Project) {
@@ -11,9 +12,9 @@ export default function ProjectPreview(project: Project) {
       />
       <h3 className="text-xl font-bold mb-2">{title}</h3>
       <p className="text-base">{description}</p>
-      <a className="text-base text-[#fca311]" href={`/projects/${slug}`}>
+      <Link className="text-base text-[#fca311]" to={`/projects/${slug}`}>
         Read more...
-      </a>
+      </Link>
     </section>
   )
 }
