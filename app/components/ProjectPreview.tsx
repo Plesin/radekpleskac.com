@@ -1,7 +1,8 @@
 import { Link } from '@remix-run/react'
-import { Project } from '@prisma/client'
+import { type Project } from '@prisma/client'
 
 export default function ProjectPreview(project: Project) {
+  // TODO find out how to fix the missing images
   const { title, description, images, slug } = project
   return (
     <section>

@@ -14,6 +14,7 @@ model Project {
   id Int @id @default(autoincrement())
   title String
   description String
+  url String @default("")
   content String
   slug String @unique @default("")
   images Image[]
