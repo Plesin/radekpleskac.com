@@ -6,10 +6,16 @@ export async function getProject(slug: Project['slug']) {
     where: {
       slug,
     },
-    include: {
+    select: {
+      id: true,
+      title: true,
+      description: true,
+      url: true,
+      content: true,
+      slug: true,
       images: {
-        include: {
-          image: true,
+        select: {
+          fileName: true,
         },
       },
       technologies: {
@@ -24,10 +30,16 @@ export async function getProject(slug: Project['slug']) {
 export async function getProjects() {
   // TODO not ideal sinc the structure is nested, images.image etc, figure out later
   return await prisma.project.findMany({
-    include: {
+    select: {
+      id: true,
+      title: true,
+      description: true,
+      url: true,
+      content: true,
+      slug: true,
       images: {
-        include: {
-          image: true,
+        select: {
+          fileName: true,
         },
       },
       technologies: {

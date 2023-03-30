@@ -1,5 +1,4 @@
 import { PrismaClient } from '@prisma/client'
-
 const prisma = new PrismaClient()
 
 async function seed() {
@@ -7,24 +6,9 @@ async function seed() {
   await prisma.project.deleteMany()
   // deleted all images
   await prisma.image.deleteMany()
-
-  await prisma.image.create({
-    data: {
-      id: 1,
-      fileName: 'fotohustopece.webp',
-      width: 800,
-      height: 400,
-    },
-  })
-
-  await prisma.image.create({
-    data: {
-      id: 2,
-      fileName: 'tlo.cz.webp',
-      width: 800,
-      height: 400,
-    },
-  })
+  // delete all technologies
+  await prisma.technology.deleteMany()
+  await prisma.technologiesOnProject.deleteMany()
 
   await prisma.technology.create({
     data: {
@@ -66,6 +50,14 @@ async function seed() {
       url: '',
       slug: 'technicke-laboratorie-opava',
       content: 'TODO',
+      images: {
+        create: {
+          id: 2,
+          fileName: 'tlo.cz.webp',
+          width: 800,
+          height: 400,
+        },
+      },
 
       createdAt: new Date(),
       updatedAt: new Date(),
@@ -80,23 +72,17 @@ async function seed() {
       url: 'https://fotohustopece.cz',
       slug: 'foto-hustopece',
       content: 'TODO',
+      images: {
+        create: {
+          id: 1,
+          fileName: 'fotohustopece.webp',
+          width: 800,
+          height: 400,
+        },
+      },
 
       createdAt: new Date(),
       updatedAt: new Date(),
-    },
-  })
-
-  await prisma.imagesOnProject.create({
-    data: {
-      imageId: 1,
-      projectId: 1,
-    },
-  })
-
-  await prisma.imagesOnProject.create({
-    data: {
-      imageId: 2,
-      projectId: 2,
     },
   })
 
