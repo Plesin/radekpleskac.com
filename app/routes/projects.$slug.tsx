@@ -13,7 +13,6 @@ export async function loader({ params }: LoaderArgs) {
 
 export default function ProjectDetail() {
   const { project } = useLoaderData<typeof loader>()
-  const { technologies } = project
 
   return (
     <>
@@ -34,11 +33,11 @@ export default function ProjectDetail() {
             ) : null}
             <img
               className="md:max-w-sm"
-              src={`/images/${project.images[0].image.fileName}`}
+              src={`/images/${project.images[0].fileName}`}
               alt={project.title}
             />
             <div>
-              {technologies.map((item: TTechnologyOnProject) => (
+              {project.technologies.map((item: TTechnologyOnProject) => (
                 <Badge key={item.technology.id}>{item.technology.name}</Badge>
               ))}
             </div>

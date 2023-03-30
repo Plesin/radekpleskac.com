@@ -28,12 +28,7 @@ export default function Index() {
           </p>
           <h2 className="py-4">Example work:</h2>
           {projects.map((project) => (
-            <ProjectPreview
-              key={project.id}
-              project={project}
-              images={project.images}
-              technologies={project.technologies}
-            />
+            <ProjectPreview key={project.id} project={project} />
           ))}
         </main>
       </div>

@@ -3,10 +3,14 @@ import Badge from './Badge'
 
 import { type IProjectPreviewProps, type TTechnologyOnProject } from '~/types'
 
-export default function ProjectPreview(props: IProjectPreviewProps) {
+export default function ProjectPreview({
+  project,
+}: {
+  project: IProjectPreviewProps
+}) {
   // TODO find out how to fix the missing images
-  const { project, images, technologies } = props
-  const firstImg = images[0]?.image
+  const { images, technologies } = project
+  const firstImg = images[0]
 
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 mb-8">
