@@ -7,18 +7,37 @@ export async function getProject(slug: Project['slug']) {
       slug,
     },
     include: {
-      images: true,
+      images: {
+        include: {
+          image: true,
+        },
+      },
+      technologies: {
+        include: {
+          technology: true,
+        },
+      },
     },
   })
 }
 
 export async function getProjects() {
+  // TODO not ideal sinc the structure is nested, images.image etc, figure out later
   return await prisma.project.findMany({
+    include: {
+      images: {
+        include: {
+          image: true,
+        },
+      },
+      technologies: {
+        include: {
+          technology: true,
+        },
+      },
+    },
     orderBy: {
       createdAt: 'desc',
-    },
-    include: {
-      images: true,
     },
   })
 }

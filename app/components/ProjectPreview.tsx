@@ -1,21 +1,37 @@
 import { Link } from '@remix-run/react'
-import { type Project } from '@prisma/client'
+import Badge from './Badge'
 
-export default function ProjectPreview(project: Project) {
+import { type IProjectPreviewProps, type TTechnologyOnProject } from '~/types'
+
+export default function ProjectPreview(props: IProjectPreviewProps) {
   // TODO find out how to fix the missing images
-  const { title, description, images, slug } = project
+  const { project, images, technologies } = props
+  const firstImg = images[0]?.image
+
   return (
-    <section>
-      <img
-        className="md:max-w-sm"
-        src={`./images/${images[0]?.fileName}`}
-        alt={title}
-      />
-      <h3 className="text-xl font-bold mb-2">{title}</h3>
-      <p className="text-base">{description}</p>
-      <Link className="text-base text-[#fca311]" to={`/projects/${slug}`}>
-        Read more...
-      </Link>
+    <section className="grid grid-cols-1 md:grid-cols-2 mb-8">
+      <div>
+        <img
+          className="md:max-w-sm"
+          src={`./images/${firstImg.fileName}`}
+          alt={project.title}
+        />
+      </div>
+      <div>
+        <h2 className="text-2xl font-bold mb-2">{project.title}</h2>
+        <p className="text-base">{project.description}</p>
+        <div>
+          {technologies.map((item: TTechnologyOnProject) => (
+            <Badge key={item.technology.id}>{item.technology.name}</Badge>
+          ))}
+        </div>
+        <Link
+          className="text-base text-[#fca311]"
+          to={`/projects/${project.slug}`}
+        >
+          project detail
+        </Link>
+      </div>
     </section>
   )
 }

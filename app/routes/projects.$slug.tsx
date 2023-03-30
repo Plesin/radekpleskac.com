@@ -3,13 +3,17 @@ import { Link, useLoaderData } from '@remix-run/react'
 import { getProject } from '~/models/projects.server'
 
 import Header from '~/components/Header'
+import Badge from '~/components/Badge'
+
+import { type TTechnologyOnProject } from '~/types'
 
 export async function loader({ params }: LoaderArgs) {
   return json({ project: await getProject(params.slug || '') })
 }
 
-export default function ProjectSlug() {
+export default function ProjectDetail() {
   const { project } = useLoaderData<typeof loader>()
+  const { technologies } = project
 
   return (
     <>
@@ -30,9 +34,14 @@ export default function ProjectSlug() {
             ) : null}
             <img
               className="md:max-w-sm"
-              src={`/images/${project.images[0].fileName}`}
+              src={`/images/${project.images[0].image.fileName}`}
               alt={project.title}
             />
+            <div>
+              {technologies.map((item: TTechnologyOnProject) => (
+                <Badge key={item.technology.id}>{item.technology.name}</Badge>
+              ))}
+            </div>
             <p className="my-3">{project?.content}</p>
             <Link className="text-base text-[#fca311]" to={`/projects`}>
               All projects
