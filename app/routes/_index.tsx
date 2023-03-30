@@ -11,6 +11,7 @@ export async function loader() {
 
 export default function Index() {
   const { projects } = useLoaderData<typeof loader>()
+  console.log('CLOG ~ Index ~ projects:', projects)
   return (
     <>
       <Header />
@@ -27,7 +28,12 @@ export default function Index() {
           </p>
           <h2 className="py-4">Example work:</h2>
           {projects.map((project) => (
-            <ProjectPreview key={project.id} {...project} />
+            <ProjectPreview
+              key={project.id}
+              project={project}
+              images={project.images}
+              technologies={project.technologies}
+            />
           ))}
         </main>
       </div>
