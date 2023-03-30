@@ -7,7 +7,16 @@ export async function getProject(slug: Project['slug']) {
       slug,
     },
     include: {
-      images: true,
+      images: {
+        include: {
+          image: true,
+        },
+      },
+      technologies: {
+        include: {
+          technology: true,
+        },
+      },
     },
   })
 }

@@ -11,7 +11,7 @@ export async function loader() {
 
 export default function Index() {
   const { projects } = useLoaderData<typeof loader>()
-  console.log('CLOG ~ Index ~ projects:', projects)
+
   return (
     <>
       <Header />

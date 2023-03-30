@@ -1,28 +1,7 @@
 import { Link } from '@remix-run/react'
-import {
-  type Project,
-  type TechnologiesOnProject,
-  type Technology,
-  type ImagesOnProject,
-  type Image,
-} from '@prisma/client'
 import Badge from './Badge'
 
-// TODO - not happy about all this type extending but works for now
-
-type TechnologyOnProject = TechnologiesOnProject & {
-  technology: Technology
-}
-
-type ImageOnProject = ImagesOnProject & {
-  image: Image
-}
-
-interface IProjectPreviewProps {
-  project: Project
-  technologies: TechnologyOnProject[]
-  images: ImageOnProject[]
-}
+import { type IProjectPreviewProps, type TTechnologyOnProject } from '~/types'
 
 export default function ProjectPreview(props: IProjectPreviewProps) {
   // TODO find out how to fix the missing images
@@ -42,7 +21,7 @@ export default function ProjectPreview(props: IProjectPreviewProps) {
         <h2 className="text-2xl font-bold mb-2">{project.title}</h2>
         <p className="text-base">{project.description}</p>
         <div>
-          {technologies.map((item: TechnologyOnProject) => (
+          {technologies.map((item: TTechnologyOnProject) => (
             <Badge key={item.technology.id}>{item.technology.name}</Badge>
           ))}
         </div>
