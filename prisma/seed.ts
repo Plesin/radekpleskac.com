@@ -25,7 +25,7 @@ async function seed() {
     data: {
       id: 2,
       title: 'Technické Laboratoře Opava',
-      description: 'webová prezentace tlo.cz',
+      description: 'Wordpress web presentation tlo.cz',
       url: '',
       slug: 'technicke-laboratorie-opava',
       content: 'TODO',
@@ -47,7 +47,7 @@ async function seed() {
     data: {
       id: 1,
       title: 'Foto Hustopeče',
-      description: 'webová prezentace pro foto studio Hustopeče',
+      description: 'Photography studio website with administration',
       url: 'https://fotohustopece.cz',
       slug: 'foto-hustopece',
       content: markdown.fotohustopece,
