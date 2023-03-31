@@ -104,6 +104,19 @@ const technologiesOnProject: TechnologiesOnProject[] = [
     technologyId: 4,
     projectId: 2,
   },
+  // magicka-noc
+  {
+    technologyId: 3,
+    projectId: 3,
+  },
+  {
+    technologyId: 10,
+    projectId: 3,
+  },
+  {
+    technologyId: 9,
+    projectId: 3,
+  },
 ]
 
 const markdown = {
