@@ -23,6 +23,28 @@ async function seed() {
 
   await prisma.project.create({
     data: {
+      id: 3,
+      title: 'Magická noc',
+      description: 'Web presentation for a charity event',
+      url: '',
+      slug: 'magicka-noc',
+      content: 'TODO',
+      images: {
+        create: {
+          id: 3,
+          fileName: 'magickanoc.webp',
+          width: 800,
+          height: 500,
+        },
+      },
+
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+  })
+
+  await prisma.project.create({
+    data: {
       id: 2,
       title: 'Technické Laboratoře Opava',
       description: 'Wordpress web presentation tlo.cz',
@@ -34,7 +56,7 @@ async function seed() {
           id: 2,
           fileName: 'tlo.cz.webp',
           width: 800,
-          height: 400,
+          height: 500,
         },
       },
 
@@ -56,7 +78,7 @@ async function seed() {
           id: 1,
           fileName: 'fotohustopece.webp',
           width: 800,
-          height: 400,
+          height: 500,
         },
       },
 
