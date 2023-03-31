@@ -11,7 +11,6 @@ import { type TTechnologyOnProject } from '~/types'
 export async function loader({ params }: LoaderArgs) {
   const project = await getProject(params.slug || '')
   const html = marked(project?.content || '')
-  console.log('CLOG ~ loader ~ html:', html)
   return json({ project, html })
 }
 
