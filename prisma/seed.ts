@@ -1,45 +1,24 @@
+import { technologies, technologiesOnProject } from './seedData'
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 async function seed() {
+  // delete all technologies
+  await prisma.technologiesOnProject.deleteMany()
+  await prisma.technology.deleteMany()
   // deleted all projects
   await prisma.project.deleteMany()
   // deleted all images
   await prisma.image.deleteMany()
-  // delete all technologies
-  await prisma.technology.deleteMany()
-  await prisma.technologiesOnProject.deleteMany()
 
-  await prisma.technology.create({
-    data: {
-      id: 1,
-      name: 'Laravel',
-      url: 'https://laravel.com',
-    },
-  })
-
-  await prisma.technology.create({
-    data: {
-      id: 2,
-      name: 'Vue.js',
-      url: 'https://vuejs.org',
-    },
-  })
-
-  await prisma.technology.create({
-    data: {
-      id: 3,
-      name: 'Wordpress',
-      url: 'https://wordpress.org',
-    },
-  })
-
-  await prisma.technology.create({
-    data: {
-      id: 4,
-      name: 'jQuery',
-      url: 'https://jquery.com',
-    },
+  technologies.forEach(async (technology) => {
+    await prisma.technology.create({
+      data: {
+        id: technology.id,
+        name: technology.name,
+        url: technology.url,
+      },
+    })
   })
 
   await prisma.project.create({
@@ -86,33 +65,17 @@ async function seed() {
     },
   })
 
-  await prisma.technologiesOnProject.create({
-    data: {
-      technologyId: 1,
-      projectId: 1,
-    },
-  })
-
-  await prisma.technologiesOnProject.create({
-    data: {
-      technologyId: 2,
-      projectId: 1,
-    },
-  })
-
-  await prisma.technologiesOnProject.create({
-    data: {
-      technologyId: 3,
-      projectId: 2,
-    },
-  })
-
-  await prisma.technologiesOnProject.create({
-    data: {
-      technologyId: 4,
-      projectId: 2,
-    },
-  })
+  // TODO - let's pretend it's not here and fix it soon
+  setTimeout(() => {
+    technologiesOnProject.forEach(async (technologyOnProject) => {
+      await prisma.technologiesOnProject.create({
+        data: {
+          technologyId: technologyOnProject.technologyId,
+          projectId: technologyOnProject.projectId,
+        },
+      })
+    })
+  }, 3000)
 
   console.log(`Database has been seeded. 🌱`)
 }
