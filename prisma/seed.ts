@@ -1,4 +1,4 @@
-import { technologies, technologiesOnProject } from './seedData'
+import { technologies, technologiesOnProject, markdown } from './seedData'
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
@@ -50,7 +50,7 @@ async function seed() {
       description: 'webová prezentace pro foto studio Hustopeče',
       url: 'https://fotohustopece.cz',
       slug: 'foto-hustopece',
-      content: 'TODO',
+      content: markdown.fotohustopece,
       images: {
         create: {
           id: 1,
