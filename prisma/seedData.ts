@@ -106,4 +106,18 @@ const technologiesOnProject: TechnologiesOnProject[] = [
   },
 ]
 
-export { technologies, technologiesOnProject }
+const markdown = {
+  fotohustopece: `
+# Project description
+## Frontend - public
+The user facing frontend of this project is very lightweight with no large UI libraries. consisting of mostly blade templates, small css library and a couple of web components.
+The emphasis was on core web vitals (98-96-100-100 score) and SEO and fast page load on mobile as well as desktop.
+## Frontend - admin 
+There is also administration UI developed with Vue.js and twitter bootstrap.
+
+## Backend
+The Backend stack was mostly driven by existing hosting and my desire to learn the Laravel framework.
+`.trim(),
+}
+
+export { technologies, technologiesOnProject, markdown }

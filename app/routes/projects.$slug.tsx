@@ -1,6 +1,7 @@
 import { json, type LoaderArgs } from '@remix-run/node'
 import { Link, useLoaderData } from '@remix-run/react'
 import { getProject } from '~/models/projects.server'
+import { marked } from 'marked'
 
 import Header from '~/components/Header'
 import Badge from '~/components/Badge'
@@ -8,11 +9,13 @@ import Badge from '~/components/Badge'
 import { type TTechnologyOnProject } from '~/types'
 
 export async function loader({ params }: LoaderArgs) {
-  return json({ project: await getProject(params.slug || '') })
+  const project = await getProject(params.slug || '')
+  const html = marked(project?.content || '')
+  return json({ project, html })
 }
 
 export default function ProjectDetail() {
-  const { project } = useLoaderData<typeof loader>()
+  const { project, html } = useLoaderData<typeof loader>()
 
   return (
     <>
@@ -41,7 +44,10 @@ export default function ProjectDetail() {
                 <Badge key={item.technology.id}>{item.technology.name}</Badge>
               ))}
             </div>
-            <p className="my-3">{project?.content}</p>
+            <div
+              className="my-3 markdown-content"
+              dangerouslySetInnerHTML={{ __html: html }}
+            />
             <Link className="text-base text-[#fca311]" to={`/projects`}>
               All projects
             </Link>
