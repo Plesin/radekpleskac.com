@@ -28,6 +28,7 @@ async function seed() {
       description: 'Web presentation for a charity event',
       url: '',
       slug: 'magicka-noc',
+      releaseDate: new Date('2010-11-14'),
       content: 'TODO',
       images: {
         create: {
@@ -50,6 +51,7 @@ async function seed() {
       description: 'Wordpress web presentation tlo.cz',
       url: '',
       slug: 'technicke-laboratorie-opava',
+      releaseDate: new Date('2011-07-14'),
       content: 'TODO',
       images: {
         create: {
@@ -73,6 +75,7 @@ async function seed() {
       url: 'https://fotohustopece.cz',
       slug: 'foto-hustopece',
       content: markdown.fotohustopece,
+      releaseDate: new Date('2023-03-27'),
       images: {
         create: {
           id: 1,

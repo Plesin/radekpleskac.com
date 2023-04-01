@@ -13,6 +13,7 @@ export async function getProject(slug: Project['slug']) {
       url: true,
       content: true,
       slug: true,
+      releaseDate: true,
       images: {
         select: {
           fileName: true,
@@ -37,6 +38,7 @@ export async function getProjects() {
       url: true,
       content: true,
       slug: true,
+      releaseDate: true,
       images: {
         select: {
           fileName: true,
