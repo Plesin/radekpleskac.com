@@ -28,7 +28,8 @@ model Project {
   description  String
   url          String                  @default("")
   content      String
-  slug         String                  @unique @default("")
+  slug         String                  @unique @default("")  
+  releaseDate  DateTime?
   images       Image[]
   technologies TechnologiesOnProject[]
 

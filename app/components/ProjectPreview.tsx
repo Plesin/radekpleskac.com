@@ -11,6 +11,14 @@ export default function ProjectPreview({
   // TODO find out how to fix the missing images
   const { images, technologies } = project
   const firstImg = images[0]
+  // TODO move to utils or do some caching
+  let releasedDate = null
+  if (project.releaseDate) {
+    const projectDate = new Date(project.releaseDate)
+    const month = projectDate.toLocaleString('default', { month: 'short' })
+    const year = projectDate.getFullYear()
+    releasedDate = `${month} ${year}`
+  }
 
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 mb-8">
@@ -24,6 +32,9 @@ export default function ProjectPreview({
       <div>
         <h2 className="text-2xl font-bold mb-2">{project.title}</h2>
         <p className="text-base">{project.description}</p>
+        {releasedDate ? (
+          <span className="text-sm">Released: {releasedDate}</span>
+        ) : null}
         <div>
           {technologies.map((item: TTechnologyOnProject) => (
             <Badge key={item.technology.id}>{item.technology.name}</Badge>
