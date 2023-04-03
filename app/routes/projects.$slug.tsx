@@ -27,7 +27,7 @@ export default function ProjectDetail() {
             <h3 className="mt-3">{project?.description}</h3>
             {project.url ? (
               <Link
-                className="text-base text-[#fca311] inline-block my-4"
+                className="text-base inline-block my-4"
                 to={project.url}
                 target="_blank"
               >
@@ -48,7 +48,7 @@ export default function ProjectDetail() {
               className="my-3 markdown-content"
               dangerouslySetInnerHTML={{ __html: html }}
             />
-            <Link className="text-base text-[#fca311]" to={`/projects`}>
+            <Link className="text-base" to={`/projects`}>
               All projects
             </Link>
           </main>

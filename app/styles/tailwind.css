@@ -7,6 +7,14 @@ body {
   min-height: 100vh;
 }
 
+a {
+  @apply text-[#fca311];
+}
+
+a:hover {
+  @apply underline;
+}
+
 .markdown-content h1 {
   @apply my-4 text-2xl;
 }
@@ -17,4 +25,10 @@ body {
 
 .markdown-content p {
   @apply my-4 text-lg;
+  line-height: 1.5rem;
+}
+
+.markdown-content ul {
+  @apply ml-4;
+  list-style: circle;
 }

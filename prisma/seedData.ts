@@ -131,6 +131,26 @@ There is also administration UI developed with Vue.js and twitter bootstrap.
 ## Backend
 The Backend stack was mostly driven by existing hosting and my desire to learn the Laravel framework.
 `.trim(),
+  tlo: `
+# Project description
+A multilanguage Wordpress web presentation optimized for performance via caching.
+## My work
+- Creating a custom theme based on design
+- Generating graphics from psd
+- HTML/CSS/Javascript
+## Design
+[rawen.net](https://rawen.net)
+`.trim(),
+  magickanoc: `
+# Project description
+A charity Wordpress presentation, created over a weekend as a replacement developer.
+## My work
+- Creating a custom theme based on design
+- Generating graphics from psd
+- HTML/CSS/Javascript
+## Design
+[rawen.net](https://rawen.net)
+`.trim(),
 }
 
 export { technologies, technologiesOnProject, markdown }

@@ -40,10 +40,7 @@ export default function ProjectPreview({
             <Badge key={item.technology.id}>{item.technology.name}</Badge>
           ))}
         </div>
-        <Link
-          className="text-base text-[#fca311]"
-          to={`/projects/${project.slug}`}
-        >
+        <Link className="text-sm" to={`/projects/${project.slug}`}>
           project detail
         </Link>
       </div>

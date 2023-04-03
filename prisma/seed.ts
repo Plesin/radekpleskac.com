@@ -29,7 +29,7 @@ async function seed() {
       url: '',
       slug: 'magicka-noc',
       releaseDate: new Date('2010-11-14'),
-      content: 'TODO',
+      content: markdown.magickanoc,
       images: {
         create: {
           id: 3,
@@ -52,7 +52,7 @@ async function seed() {
       url: '',
       slug: 'technicke-laboratorie-opava',
       releaseDate: new Date('2011-07-14'),
-      content: 'TODO',
+      content: markdown.tlo,
       images: {
         create: {
           id: 2,
