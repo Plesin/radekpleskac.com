@@ -25,19 +25,6 @@ export default function Header() {
   const handleIconCLick = () => setIsOpen(!isOpen)
 
   return (
-    // <header className="flex items-baseline">
-    //   <h1 className="grow text-3xl font-bold text-gray-900 dark:text-slate-300">
-    //     <Link to="/">Radek Pleskac</Link>
-    //   </h1>
-    //   <nav>
-    //     <Link to="/about" className="ml-5 hover:text-[#fda300]">
-    //       About
-    //     </Link>
-    //     <Link to="/projects" className="ml-5 hover:text-[#fda300]">
-    //       Projects
-    //     </Link>
-    //   </nav>
-    // </header>
     <header>
       <nav
         className="
@@ -48,7 +35,7 @@ export default function Header() {
         "
       >
         <div>
-          <h1 className="grow text-3xl font-bold text-gray-900 dark:text-slate-300">
+          <h1 className="grow text-3xl font-bold text-base">
             <Link to="/">Radek Pleskac</Link>
           </h1>
         </div>
@@ -70,17 +57,17 @@ export default function Header() {
               md:pt-0"
           >
             <li>
-              <Link to="/" className="ml-5 hover:text-[#fda300]">
+              <Link to="/" className="ml-5">
                 Home
               </Link>
             </li>
             <li>
-              <Link to="/projects" className="ml-5 hover:text-[#fda300]">
+              <Link to="/projects" className="ml-5">
                 Projects
               </Link>
             </li>
             <li>
-              <Link to="/links" className="ml-5 hover:text-[#fda300]">
+              <Link to="/links" className="ml-5">
                 Links
               </Link>
             </li>

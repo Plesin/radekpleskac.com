@@ -17,7 +17,7 @@ export default function Index() {
       <Header />
       <div className="min-h-screen">
         <main className="container md:min-h-screen px-6 sm:px-6 py-6 sm:py-10 lg:py-14 mb-20 mx-auto max-w-4xl">
-          <h1 className="text-[#fca311] my-12 text-3xl md:text-5xl font-bold leading-tight">
+          <h1 className="my-12 text-3xl md:text-5xl font-bold leading-tight">
             A freelance frontend developer passionate about the craft of
             developing performant, usable, accessible web applications.
           </h1>

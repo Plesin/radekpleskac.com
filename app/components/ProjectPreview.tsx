@@ -21,7 +21,7 @@ export default function ProjectPreview({
   }
 
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 mb-8">
+    <section className="grid grid-cols-1 sm:grid-cols-2 mb-8 bg-base text-dark rounded p-4">
       <div>
         <img
           className="md:max-w-sm"
@@ -31,7 +31,7 @@ export default function ProjectPreview({
       </div>
       <div>
         <h2 className="text-2xl font-bold mb-2">{project.title}</h2>
-        <p className="text-base">{project.description}</p>
+        <p>{project.description}</p>
         {releasedDate ? (
           <span className="text-sm">Released: {releasedDate}</span>
         ) : null}
@@ -40,7 +40,7 @@ export default function ProjectPreview({
             <Badge key={item.technology.id}>{item.technology.name}</Badge>
           ))}
         </div>
-        <Link className="text-sm" to={`/projects/${project.slug}`}>
+        <Link className="text-sm text-light" to={`/projects/${project.slug}`}>
           project detail
         </Link>
       </div>
