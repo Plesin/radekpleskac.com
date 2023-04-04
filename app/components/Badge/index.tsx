@@ -6,7 +6,7 @@ export default function Badge({
   children: JSX.Element | string
 }): JSX.Element {
   return (
-    <span className="bg-blue-100 text-white-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300 inline-block">
+    <span className="bg-primary text-dark text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full inline-block">
       {children}
     </span>
   )

@@ -8,7 +8,7 @@ body {
 }
 
 a {
-  @apply text-[#fca311];
+  @apply text-base;
 }
 
 a:hover {
@@ -21,6 +21,10 @@ a:hover {
 
 .markdown-content h2 {
   @apply my-4 text-xl;
+}
+
+.markdown-content a {
+  @apply text-primary;
 }
 
 .markdown-content p {
