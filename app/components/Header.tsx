@@ -1,5 +1,6 @@
 import { Link } from '@remix-run/react'
 import { MouseEventHandler, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 
 const MenuIcon = ({ onClick }: { onClick: MouseEventHandler }): JSX.Element => (
   <svg
@@ -23,6 +24,14 @@ const MenuIcon = ({ onClick }: { onClick: MouseEventHandler }): JSX.Element => (
 export default function Header() {
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const handleIconCLick = () => setIsOpen(!isOpen)
+  const location = useLocation()
+  const { pathname } = location
+  const selectedClass = (path: string) => {
+    if (pathname === path) {
+      return 'text-primary'
+    }
+    return ''
+  }
 
   return (
     <header>
@@ -57,17 +66,20 @@ export default function Header() {
               md:pt-0"
           >
             <li>
-              <Link to="/" className="ml-5">
+              <Link to="/" className={`ml-5 ${selectedClass('/')}`}>
                 Home
               </Link>
             </li>
             <li>
-              <Link to="/projects" className="ml-5">
+              <Link
+                to="/projects"
+                className={`ml-5 ${selectedClass('/projects')}`}
+              >
                 Projects
               </Link>
             </li>
             <li>
-              <Link to="/links" className="ml-5">
+              <Link to="/links" className={`ml-5 ${selectedClass('/links')}`}>
                 Links
               </Link>
             </li>
