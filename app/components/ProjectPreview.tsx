@@ -24,7 +24,7 @@ export default function ProjectPreview({
     <section className="grid grid-cols-1 sm:grid-cols-2 mb-8 bg-base text-dark rounded p-4">
       <div>
         <img
-          className="md:max-w-sm"
+          className="md:max-w-sm rounded"
           src={`./images/${firstImg.fileName}`}
           alt={project.title}
         />
