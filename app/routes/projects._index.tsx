@@ -6,7 +6,7 @@ import ProjectPreview from '~/components/ProjectPreview'
 import { getProjects } from '~/models/projects.server'
 
 export async function loader() {
-  return json({ projects: await getProjects() })
+  return json({ projects: await getProjects(10) })
 }
 
 export default function About() {

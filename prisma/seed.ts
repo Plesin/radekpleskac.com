@@ -23,6 +23,29 @@ async function seed() {
 
   await prisma.project.create({
     data: {
+      id: 4,
+      title: 'My Way Alaska',
+      description: 'Web presentation for a B&B in Alaska',
+      url: '',
+      slug: 'mywayalaska',
+      releaseDate: new Date('2011-05-11'),
+      content: markdown.mywayalaska,
+      images: {
+        create: {
+          id: 4,
+          fileName: 'mywayalaska.webp',
+          width: 800,
+          height: 500,
+        },
+      },
+
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+  })
+
+  await prisma.project.create({
+    data: {
       id: 3,
       title: 'Magická noc',
       description: 'Web presentation for a charity event',
