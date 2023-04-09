@@ -28,7 +28,7 @@ export async function getProject(slug: Project['slug']) {
   })
 }
 
-export async function getProjects() {
+export async function getProjects(limit: number = 3) {
   // TODO not ideal sinc the structure is nested, images.image etc, figure out later
   return await prisma.project.findMany({
     select: {
@@ -51,7 +51,8 @@ export async function getProjects() {
       },
     },
     orderBy: {
-      createdAt: 'desc',
+      releaseDate: 'desc',
     },
+    take: limit,
   })
 }

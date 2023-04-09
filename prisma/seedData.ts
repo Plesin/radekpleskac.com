@@ -1,5 +1,24 @@
 import { type Technology, type TechnologiesOnProject } from '@prisma/client'
 
+const commonWordpressTech = (projectId: number) => [
+  {
+    technologyId: 3,
+    projectId,
+  },
+  {
+    technologyId: 10,
+    projectId,
+  },
+  {
+    technologyId: 9,
+    projectId,
+  },
+  {
+    technologyId: 4,
+    projectId,
+  },
+]
+
 const technologies: Technology[] = [
   {
     id: 1,
@@ -88,35 +107,11 @@ const technologiesOnProject: TechnologiesOnProject[] = [
     projectId: 1,
   },
   // tlo.cz
-  {
-    technologyId: 3,
-    projectId: 2,
-  },
-  {
-    technologyId: 10,
-    projectId: 2,
-  },
-  {
-    technologyId: 9,
-    projectId: 2,
-  },
-  {
-    technologyId: 4,
-    projectId: 2,
-  },
+  ...commonWordpressTech(2),
   // magicka-noc
-  {
-    technologyId: 3,
-    projectId: 3,
-  },
-  {
-    technologyId: 10,
-    projectId: 3,
-  },
-  {
-    technologyId: 9,
-    projectId: 3,
-  },
+  ...commonWordpressTech(3),
+  // mywayalaska
+  ...commonWordpressTech(4),
 ]
 
 const markdown = {
@@ -144,6 +139,16 @@ A multilanguage Wordpress web presentation optimized for performance via caching
   magickanoc: `
 # Project description
 A charity Wordpress presentation, created over a weekend as a replacement developer.
+## My work
+- Creating a custom theme based on design
+- Generating graphics from psd
+- HTML/CSS/Javascript
+## Design
+[rawen.net](https://rawen.net)
+`.trim(),
+  mywayalaska: `
+# Project description
+A web presentation for bed and breakfast accomodation in Alaska. Translated into 4 languages.
 ## My work
 - Creating a custom theme based on design
 - Generating graphics from psd
