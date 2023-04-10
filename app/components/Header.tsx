@@ -66,22 +66,14 @@ export default function Header() {
 
         <div
           className={`${
-            isOpen ? '' : 'hidden'
+            isOpen ? 'mobile-visible' : 'hidden'
           } items-center w-full md:w-auto md:flex h-screen md:h-auto`}
-          id="menu"
         >
-          <ul
-            className="
-              pt-8
-              md:flex
-              md:justify-between"
-          >
+          <ul className="md:flex md:justify-between">
             <li>
               <Link
                 to="/"
-                className={`inline-block ml-5 my-2 text-2xl ${selectedClass(
-                  '/'
-                )}`}
+                className={`inline-block ml-5 ${selectedClass('/')}`}
               >
                 Home
               </Link>
@@ -89,9 +81,7 @@ export default function Header() {
             <li>
               <Link
                 to="/projects"
-                className={`inline-block ml-5 my-2 text-2xl ${selectedClass(
-                  '/projects'
-                )}`}
+                className={`inline-block ml-5 ${selectedClass('/projects')}`}
               >
                 Projects
               </Link>
@@ -99,9 +89,7 @@ export default function Header() {
             <li>
               <Link
                 to="/links"
-                className={`inline-block ml-5 my-2 text-2xl ${selectedClass(
-                  '/links'
-                )}`}
+                className={`inline-block ml-5 ${selectedClass('/links')}`}
               >
                 Links
               </Link>

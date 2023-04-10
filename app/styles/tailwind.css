@@ -36,3 +36,11 @@ a:hover {
   @apply ml-4;
   list-style: circle;
 }
+
+.mobile-visible {
+  @apply mt-4;
+}
+
+.mobile-visible a {
+  @apply text-2xl pt-4;
+}
