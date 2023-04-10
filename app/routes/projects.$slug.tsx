@@ -22,12 +22,12 @@ export default function ProjectDetail() {
       <Header />
       {project ? (
         <div>
-          <main className="container bg-base text-dark rounded px-6 sm:px-6 my-6 sm:my-10 lg:py-14 mb-20 mx-auto max-w-4xl">
-            <h1 className="text-5xl font-bold">{project?.title}</h1>
+          <main className="container bg-base text-dark rounded px-6 my-10 md:my-10 lg:py-14 mb-20 mx-auto max-w-4xl">
+            <h1 className="text-3xl md:text-5xl font-bold">{project?.title}</h1>
             <h3 className="mt-3">{project?.description}</h3>
             {project.url ? (
               <Link
-                className="text-base inline-block my-4"
+                className="text-primary inline-block my-4"
                 to={project.url}
                 target="_blank"
               >
