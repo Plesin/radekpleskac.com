@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link } from '@remix-run/react'
 import { MouseEventHandler, useState } from 'react'
 import { useLocation } from 'react-router-dom'
@@ -33,6 +34,18 @@ export default function Header() {
     return ''
   }
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'auto'
+    }
+
+    return () => {
+      document.body.style.overflow = 'auto'
+    }
+  }, [isOpen])
+
   return (
     <header>
       <nav
@@ -40,7 +53,7 @@ export default function Header() {
           flex flex-wrap
           items-center
           justify-between
-          w-full                 
+          w-full
         "
       >
         <div>
@@ -54,32 +67,42 @@ export default function Header() {
         <div
           className={`${
             isOpen ? '' : 'hidden'
-          } w-full md:flex md:items-baseline md:w-auto`}
+          } items-center w-full md:w-auto md:flex h-screen md:h-auto`}
           id="menu"
         >
           <ul
             className="
-              pt-4
-              text-base
+              pt-8
               md:flex
-              md:justify-between 
-              md:pt-0"
+              md:justify-between"
           >
             <li>
-              <Link to="/" className={`ml-5 ${selectedClass('/')}`}>
+              <Link
+                to="/"
+                className={`inline-block ml-5 my-2 text-2xl ${selectedClass(
+                  '/'
+                )}`}
+              >
                 Home
               </Link>
             </li>
             <li>
               <Link
                 to="/projects"
-                className={`ml-5 ${selectedClass('/projects')}`}
+                className={`inline-block ml-5 my-2 text-2xl ${selectedClass(
+                  '/projects'
+                )}`}
               >
                 Projects
               </Link>
             </li>
             <li>
-              <Link to="/links" className={`ml-5 ${selectedClass('/links')}`}>
+              <Link
+                to="/links"
+                className={`inline-block ml-5 my-2 text-2xl ${selectedClass(
+                  '/links'
+                )}`}
+              >
                 Links
               </Link>
             </li>
