@@ -8,7 +8,6 @@ export default function ProjectPreview({
 }: {
   project: IProjectPreviewProps
 }) {
-  // TODO find out how to fix the missing images
   const { images, technologies } = project
   const firstImg = images[0]
   // TODO move to utils or do some caching
@@ -24,12 +23,12 @@ export default function ProjectPreview({
     <section className="grid grid-cols-1 sm:grid-cols-2 mb-8 bg-base text-dark rounded p-4">
       <div>
         <img
-          className="md:max-w-sm rounded"
+          className="rounded"
           src={`./images/${firstImg.fileName}`}
           alt={project.title}
         />
       </div>
-      <div>
+      <div className="md:pl-4">
         <h2 className="text-2xl font-bold mb-2">{project.title}</h2>
         <p>{project.description}</p>
         {releasedDate ? (
