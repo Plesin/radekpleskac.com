@@ -10,6 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: npm i && npm run build && npm run deploy
+      - run: npm run fly-deploy
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}

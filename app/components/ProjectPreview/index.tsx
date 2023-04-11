@@ -1,7 +1,8 @@
 import { Link } from '@remix-run/react'
-import Badge from './Badge'
+import Badge from '../Badge'
 
-import { ArrowIcon } from './Icon'
+import { ArrowIcon } from '../Icon'
+import { getReleaseDate } from '../../utils'
 import { type IProjectPreviewProps, type TTechnologyOnProject } from '~/types'
 
 export default function ProjectPreview({
@@ -11,14 +12,7 @@ export default function ProjectPreview({
 }) {
   const { images, technologies } = project
   const firstImg = images[0]
-  // TODO move to utils or do some caching
-  let releasedDate = null
-  if (project.releaseDate) {
-    const projectDate = new Date(project.releaseDate)
-    const month = projectDate.toLocaleString('default', { month: 'short' })
-    const year = projectDate.getFullYear()
-    releasedDate = `${month} ${year}`
-  }
+  let releasedDate = getReleaseDate(project.releaseDate)
 
   return (
     <section className="grid grid-cols-1 sm:grid-cols-2 mb-8 bg-base text-dark rounded p-4">
