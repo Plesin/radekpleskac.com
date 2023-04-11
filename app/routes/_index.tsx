@@ -1,8 +1,10 @@
+import { Link } from '@remix-run/react'
 import { json } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
 
 import Header from '~/components/Header'
 import ProjectPreview from '~/components/ProjectPreview'
+import { ArrowIcon } from '~/components/Icon'
 import { getProjects } from '~/models/projects.server'
 
 export async function loader() {
@@ -30,6 +32,9 @@ export default function Index() {
           {projects.map((project) => (
             <ProjectPreview key={project.id} project={project} />
           ))}
+          <Link to={`/projects`} className="text-primary float-right">
+            All Projects <ArrowIcon />
+          </Link>
         </main>
       </div>
     </>
