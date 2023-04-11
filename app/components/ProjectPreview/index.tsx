@@ -1,8 +1,8 @@
 import { Link } from '@remix-run/react'
-import Badge from './Badge'
+import Badge from '../Badge'
 
-import { ArrowIcon } from './Icon'
-import { getReleaseDate } from '~/utils'
+import { ArrowIcon } from '../Icon'
+import { getReleaseDate } from '../../utils'
 import { type IProjectPreviewProps, type TTechnologyOnProject } from '~/types'
 
 export default function ProjectPreview({
@@ -12,9 +12,7 @@ export default function ProjectPreview({
 }) {
   const { images, technologies } = project
   const firstImg = images[0]
-
   let releasedDate = getReleaseDate(project.releaseDate)
-  console.log('CLOG ~ releasedDate:', typeof project.releaseDate)
 
   return (
     <section className="grid grid-cols-1 sm:grid-cols-2 mb-8 bg-base text-dark rounded p-4">
