@@ -3,6 +3,7 @@ import { Link, useLoaderData } from '@remix-run/react'
 import { getProject } from '~/models/projects.server'
 import { marked } from 'marked'
 
+import { ArrowIcon } from '~/components/Icon'
 import Header from '~/components/Header'
 import Badge from '~/components/Badge'
 
@@ -49,10 +50,12 @@ export default function ProjectDetail() {
               className="my-3 markdown-content"
               dangerouslySetInnerHTML={{ __html: html }}
             />
-            <Link className="text-primary" to={`/projects`}>
-              All projects
-            </Link>
           </main>
+          <div className="mx-auto max-w-4xl">
+            <Link to={`/projects`} className="text-primary float-right">
+              All Projects <ArrowIcon />
+            </Link>
+          </div>
         </div>
       ) : (
         <div>Project does not exist</div>

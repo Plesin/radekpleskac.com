@@ -23,6 +23,75 @@ async function seed() {
 
   await prisma.project.create({
     data: {
+      id: 7,
+      title: 'Badminton Hustopeče',
+      description: 'Badmingon sport club website',
+      url: '',
+      slug: 'badminton-hustopece',
+      releaseDate: new Date('2011-04-17'),
+      content: markdown.badmintonhustopece,
+      images: {
+        create: {
+          id: 7,
+          fileName: 'badmintonhustopece.webp',
+          width: 800,
+          height: 500,
+        },
+      },
+
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+  })
+
+  await prisma.project.create({
+    data: {
+      id: 6,
+      title: 'Villa Richter',
+      description: 'Web presentation for a luxury Prague restaurant',
+      url: '',
+      slug: 'villarichter',
+      releaseDate: new Date('2011-12-05'),
+      content: markdown.villarichter,
+      images: {
+        create: {
+          id: 6,
+          fileName: 'villarichter.webp',
+          width: 800,
+          height: 500,
+        },
+      },
+
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+  })
+
+  await prisma.project.create({
+    data: {
+      id: 5,
+      title: 'My Flatshare',
+      description: 'Web appliction for flat sharing',
+      url: '',
+      slug: 'myflatshare',
+      releaseDate: new Date('2012-03-27'),
+      content: markdown.myflatshare,
+      images: {
+        create: {
+          id: 5,
+          fileName: 'myflatshare.webp',
+          width: 800,
+          height: 500,
+        },
+      },
+
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+  })
+
+  await prisma.project.create({
+    data: {
       id: 4,
       title: 'My Way Alaska',
       description: 'Web presentation for a B&B in Alaska',

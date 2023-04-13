@@ -19,6 +19,21 @@ const commonWordpressTech = (projectId: number) => [
   },
 ]
 
+const commonWebTech = (projectId: number) => [
+  {
+    technologyId: 11,
+    projectId,
+  },
+  {
+    technologyId: 12,
+    projectId,
+  },
+  {
+    technologyId: 13,
+    projectId,
+  },
+]
+
 const technologies: Technology[] = [
   {
     id: 1,
@@ -70,6 +85,21 @@ const technologies: Technology[] = [
     name: 'PHP',
     url: 'https://www.php.net/',
   },
+  {
+    id: 11,
+    name: 'Javascript',
+    url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+  },
+  {
+    id: 12,
+    name: 'HTML',
+    url: 'https://developer.mozilla.org/en-US/docs/Web/HTML',
+  },
+  {
+    id: 13,
+    name: 'CSS',
+    url: 'https://developer.mozilla.org/en-US/docs/Web/CSS',
+  },
 ]
 
 const technologiesOnProject: TechnologiesOnProject[] = [
@@ -112,6 +142,12 @@ const technologiesOnProject: TechnologiesOnProject[] = [
   ...commonWordpressTech(3),
   // mywayalaska
   ...commonWordpressTech(4),
+  // villarichter.cz
+  ...commonWebTech(5),
+  // myflatshare.com
+  ...commonWebTech(6),
+  // badmintohustopece.cz
+  ...commonWordpressTech(7),
 ]
 
 const markdown = {
@@ -155,6 +191,32 @@ A web presentation for bed and breakfast accomodation in Alaska. Translated into
 - HTML/CSS/Javascript
 ## Design
 [rawen.net](https://rawen.net)
+`.trim(),
+  myflatshare: `
+# Project description
+A web application allowing users to register flats for rent or rent them.
+## My work
+- Creating UI based on design provided
+- HTML/CSS/Javascript
+## Design
+[mobileinternet.cz](http://www.mobileinternet.cz/)
+`.trim(),
+  villarichter: `
+# Project description
+Web presentation for a luxury Prague restaurant.
+## My work
+- Creating UI based on design provided
+- HTML/CSS/Javascript
+## Design
+[mobileinternet.cz](http://www.mobileinternet.cz/)
+`.trim(),
+  badmintonhustopece: `
+# Project description
+Web presentation for a badminton club. The page included information about the club, current posts a calendar of events and a gallery.
+## My work
+- UI Design
+- Creating a WP theme
+- HTML/CSS/Javascript/PHP
 `.trim(),
 }
 
