@@ -148,6 +148,12 @@ const technologiesOnProject: TechnologiesOnProject[] = [
   ...commonWebTech(6),
   // badmintohustopece.cz
   ...commonWordpressTech(7),
+  // shambala.cz
+  ...commonWordpressTech(8),
+  // prospokojenyzivot.cz
+  ...commonWordpressTech(9),
+  // studiomaar.cz
+  ...commonWordpressTech(10),
 ]
 
 const markdown = {
@@ -217,6 +223,36 @@ Web presentation for a badminton club. The page included information about the c
 - UI Design
 - Creating a WP theme
 - HTML/CSS/Javascript/PHP
+`.trim(),
+  shambala: `
+# Project description
+A multilanguage Wordpress web presentation optimized for performance via caching.
+## My work
+- Creating a custom theme based on design
+- Generating graphics from psd
+- HTML/CSS/Javascript
+## Design
+[rawen.net](https://rawen.net)
+`.trim(),
+  prospokojenyzivot: `
+# Project description
+A multilanguage Wordpress web presentation optimized for performance via caching.
+## My work
+- Creating a custom theme based on design
+- Generating graphics from psd
+- HTML/CSS/Javascript
+## Design
+[rawen.net](https://rawen.net)
+`.trim(),
+  studiomaar: `
+# Project description
+A Wordpress web presentation optimized for performance via caching.
+## My work
+- Creating a custom theme based on design
+- Generating graphics from psd
+- HTML/CSS/Javascript
+## Design
+[rawen.net](https://rawen.net)
 `.trim(),
 }
 
