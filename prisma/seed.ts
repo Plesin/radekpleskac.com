@@ -182,6 +182,75 @@ async function seed() {
     },
   })
 
+  await prisma.project.create({
+    data: {
+      id: 8,
+      title: 'Šambala 1024',
+      description: 'Alternative healing website with administration',
+      url: '',
+      slug: 'sambala1024',
+      content: markdown.shambala,
+      releaseDate: new Date('2011-08-30'),
+      images: {
+        create: {
+          id: 8,
+          fileName: 'sambala1024.webp',
+          width: 800,
+          height: 500,
+        },
+      },
+
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+  })
+
+  await prisma.project.create({
+    data: {
+      id: 9,
+      title: 'Pro spokojený život',
+      description: 'Alternative healing website with administration',
+      url: '',
+      slug: 'pro-spokojeny-zivot',
+      content: markdown.prospokojenyzivot,
+      releaseDate: new Date('2011-06-24'),
+      images: {
+        create: {
+          id: 9,
+          fileName: 'prospokojenyzivot.webp',
+          width: 800,
+          height: 500,
+        },
+      },
+
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+  })
+
+  await prisma.project.create({
+    data: {
+      id: 10,
+      title: 'Studiomaar',
+      description: 'A wellness studio website with administration',
+      url: '',
+      slug: 'studiomaar',
+      content: markdown.studiomaar,
+      releaseDate: new Date('2012-01-22'),
+      images: {
+        create: {
+          id: 10,
+          fileName: 'studiomaar.webp',
+          width: 800,
+          height: 500,
+        },
+      },
+
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+  })
+
   // TODO - let's pretend it's not here and fix it soon
   setTimeout(() => {
     technologiesOnProject.forEach(async (technologyOnProject) => {
