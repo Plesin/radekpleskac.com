@@ -1,7 +1,7 @@
-import { prisma } from '~/db.server'
-import { type Project } from 'prisma/prisma-client'
+import { prisma } from "~/db.server";
+import { type Project } from "prisma/prisma-client";
 
-export async function getProject(slug: Project['slug']) {
+export async function getProject(slug: Project["slug"]) {
   return await prisma.project.findUnique({
     where: {
       slug,
@@ -25,7 +25,7 @@ export async function getProject(slug: Project['slug']) {
         },
       },
     },
-  })
+  });
 }
 
 export async function getProjects(limit: number = 3) {
@@ -51,8 +51,8 @@ export async function getProjects(limit: number = 3) {
       },
     },
     orderBy: {
-      releaseDate: 'desc',
+      releaseDate: "desc",
     },
     take: limit,
-  })
+  });
 }

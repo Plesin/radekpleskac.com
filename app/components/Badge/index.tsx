@@ -3,11 +3,11 @@
 export default function Badge({
   children,
 }: {
-  children: JSX.Element | string
+  children: JSX.Element | string;
 }): JSX.Element {
   return (
-    <span className="bg-primary text-dark text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full inline-block">
+    <span className="mr-2 inline-block rounded-full bg-primary px-2.5 py-0.5 text-xs font-medium text-dark">
       {children}
     </span>
-  )
+  );
 }

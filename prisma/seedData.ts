@@ -1,4 +1,4 @@
-import { type Technology, type TechnologiesOnProject } from '@prisma/client'
+import { type Technology, type TechnologiesOnProject } from "@prisma/client";
 
 const commonWordpressTech = (projectId: number) => [
   {
@@ -17,7 +17,7 @@ const commonWordpressTech = (projectId: number) => [
     technologyId: 4,
     projectId,
   },
-]
+];
 
 const commonWebTech = (projectId: number) => [
   {
@@ -32,75 +32,75 @@ const commonWebTech = (projectId: number) => [
     technologyId: 13,
     projectId,
   },
-]
+];
 
 const technologies: Technology[] = [
   {
     id: 1,
-    name: 'Laravel',
-    url: 'https://laravel.com',
+    name: "Laravel",
+    url: "https://laravel.com",
   },
   {
     id: 2,
-    name: 'Vue.js',
-    url: 'https://vuejs.org',
+    name: "Vue.js",
+    url: "https://vuejs.org",
   },
   {
     id: 3,
-    name: 'Wordpress',
-    url: 'https://wordpress.org',
+    name: "Wordpress",
+    url: "https://wordpress.org",
   },
   {
     id: 4,
-    name: 'jQuery',
-    url: 'https://jquery.com',
+    name: "jQuery",
+    url: "https://jquery.com",
   },
   {
     id: 5,
-    name: 'web.components',
-    url: 'https://developer.mozilla.org/en-US/docs/Web/Web_Components',
+    name: "web.components",
+    url: "https://developer.mozilla.org/en-US/docs/Web/Web_Components",
   },
   {
     id: 6,
-    name: 'Playwright',
-    url: 'https://playwright.dev',
+    name: "Playwright",
+    url: "https://playwright.dev",
   },
   {
     id: 7,
-    name: 'Pure.css',
-    url: 'https://purecss.io/',
+    name: "Pure.css",
+    url: "https://purecss.io/",
   },
   {
     id: 8,
-    name: 'Bootstrap',
-    url: 'https://getbootstrap.com/',
+    name: "Bootstrap",
+    url: "https://getbootstrap.com/",
   },
   {
     id: 9,
-    name: 'MySQL',
-    url: 'https://www.mysql.com/',
+    name: "MySQL",
+    url: "https://www.mysql.com/",
   },
   {
     id: 10,
-    name: 'PHP',
-    url: 'https://www.php.net/',
+    name: "PHP",
+    url: "https://www.php.net/",
   },
   {
     id: 11,
-    name: 'Javascript',
-    url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+    name: "Javascript",
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
   },
   {
     id: 12,
-    name: 'HTML',
-    url: 'https://developer.mozilla.org/en-US/docs/Web/HTML',
+    name: "HTML",
+    url: "https://developer.mozilla.org/en-US/docs/Web/HTML",
   },
   {
     id: 13,
-    name: 'CSS',
-    url: 'https://developer.mozilla.org/en-US/docs/Web/CSS',
+    name: "CSS",
+    url: "https://developer.mozilla.org/en-US/docs/Web/CSS",
   },
-]
+];
 
 const technologiesOnProject: TechnologiesOnProject[] = [
   // fotohustopece.cz
@@ -154,7 +154,7 @@ const technologiesOnProject: TechnologiesOnProject[] = [
   ...commonWordpressTech(9),
   // studiomaar.cz
   ...commonWordpressTech(10),
-]
+];
 
 const markdown = {
   fotohustopece: `
@@ -254,6 +254,6 @@ A Wordpress web presentation optimized for performance via caching.
 ## Design
 [rawen.net](https://rawen.net)
 `.trim(),
-}
+};
 
-export { technologies, technologiesOnProject, markdown }
+export { technologies, technologiesOnProject, markdown };

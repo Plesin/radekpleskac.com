@@ -1,54 +1,38 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-generator client {
-  provider = "prisma-client-js"
-}
-
 datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
-model Image {
-  id       Int               @id @default(autoincrement())
-  fileName String
-  width    Int
-  height   Int
-  project   Project          @relation(fields: [projectId], references: [id], onDelete: Cascade, onUpdate: Cascade)  
-  projectId Int
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id    String @id @default(cuid())
+  email String @unique
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  password Password?
+  notes    Note[]
 }
 
-model Project {
-  id           Int                     @id @default(autoincrement())
-  title        String
-  description  String
-  url          String                  @default("")
-  content      String
-  slug         String                  @unique @default("")  
-  releaseDate  DateTime?
-  images       Image[]
-  technologies TechnologiesOnProject[]
+model Password {
+  hash String
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  userId String @unique
+}
+
+model Note {
+  id    String @id @default(cuid())
+  title String
+  body  String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-}
 
-model Technology {
-  id       Int                     @id @default(autoincrement())
-  name     String
-  url      String                  @default("")
-  projects TechnologiesOnProject[]
-}
-
-model TechnologiesOnProject {
-  project      Project    @relation(fields: [projectId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  projectId    Int
-  technology   Technology @relation(fields: [technologyId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  technologyId Int
-
-  @@id([projectId, technologyId])
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  userId String
 }

@@ -1,13 +1,13 @@
-import { useEffect } from 'react'
-import { Link } from '@remix-run/react'
-import { MouseEventHandler, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useEffect } from "react";
+import { Link } from "@remix-run/react";
+import { MouseEventHandler, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const MenuIcon = ({ onClick }: { onClick: MouseEventHandler }): JSX.Element => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     id="menu-button"
-    className="h-6 w-6 cursor-pointer md:hidden block"
+    className="block h-6 w-6 cursor-pointer md:hidden"
     fill="none"
     viewBox="0 0 24 24"
     stroke="currentColor"
@@ -20,44 +20,37 @@ const MenuIcon = ({ onClick }: { onClick: MouseEventHandler }): JSX.Element => (
       d="M4 6h16M4 12h16M4 18h16"
     />
   </svg>
-)
+);
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState<boolean>(false)
-  const handleIconCLick = () => setIsOpen(!isOpen)
-  const location = useLocation()
-  const { pathname } = location
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const handleIconCLick = () => setIsOpen(!isOpen);
+  const location = useLocation();
+  const { pathname } = location;
   const selectedClass = (path: string) => {
     if (pathname === path) {
-      return 'text-primary'
+      return "text-primary";
     }
-    return ''
-  }
+    return "";
+  };
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden'
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'auto'
+      document.body.style.overflow = "auto";
     }
 
     return () => {
-      document.body.style.overflow = 'auto'
-    }
-  }, [isOpen])
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen]);
 
   return (
     <header>
-      <nav
-        className="
-          flex flex-wrap
-          items-center
-          justify-between
-          w-full
-        "
-      >
+      <nav className="flex w-full flex-wrap items-center justify-between">
         <div>
-          <h1 className="grow text-3xl font-bold text-base">
+          <h1 className="grow text-3xl text-base font-bold">
             <Link to="/">Radek Pleskac</Link>
           </h1>
         </div>
@@ -66,14 +59,14 @@ export default function Header() {
 
         <div
           className={`${
-            isOpen ? 'mobile-visible' : 'hidden'
-          } items-center w-full md:w-auto md:flex h-screen md:h-auto`}
+            isOpen ? "mobile-visible" : "hidden"
+          } h-screen w-full items-center md:flex md:h-auto md:w-auto`}
         >
           <ul className="md:flex md:justify-between">
             <li>
               <Link
                 to="/"
-                className={`inline-block ml-5 ${selectedClass('/')}`}
+                className={`ml-5 inline-block ${selectedClass("/")}`}
               >
                 Home
               </Link>
@@ -81,7 +74,7 @@ export default function Header() {
             <li>
               <Link
                 to="/projects"
-                className={`inline-block ml-5 ${selectedClass('/projects')}`}
+                className={`ml-5 inline-block ${selectedClass("/projects")}`}
               >
                 Projects
               </Link>
@@ -89,7 +82,7 @@ export default function Header() {
             <li>
               <Link
                 to="/links"
-                className={`inline-block ml-5 ${selectedClass('/links')}`}
+                className={`ml-5 inline-block ${selectedClass("/links")}`}
               >
                 Links
               </Link>
@@ -98,5 +91,5 @@ export default function Header() {
         </div>
       </nav>
     </header>
-  )
+  );
 }

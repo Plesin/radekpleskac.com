@@ -1,4 +1,6 @@
-import type { MetaFunction } from '@remix-run/node'
+import { cssBundleHref } from "@remix-run/css-bundle";
+import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
+import { json } from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -6,32 +8,35 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-} from '@remix-run/react'
+} from "@remix-run/react";
 
-import type { LinksFunction } from '@remix-run/node'
-import styles from './styles/tailwind.css'
+import { getUser } from "~/session.server";
+import stylesheet from "~/tailwind.css";
 
-export const links: LinksFunction = () => [{ rel: 'stylesheet', href: styles }]
+export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: stylesheet },
+  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
+];
 
-export const meta: MetaFunction = () => ({
-  charset: 'utf-8',
-  title: 'Radek Pleskac | web developer',
-  viewport: 'width=device-width,initial-scale=1',
-})
+export const loader = async ({ request }: LoaderFunctionArgs) => {
+  return json({ user: await getUser(request) });
+};
 
 export default function App() {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="h-full">
       <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
         <Meta />
         <Links />
       </head>
-      <body className="bg-dark text-base max-w-7xl mx-auto pt-3 pb-6 px-4 sm:px-6 lg:px-8 text-xl">
+      <body className="h-full">
         <Outlet />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
       </body>
     </html>
-  )
+  );
 }
