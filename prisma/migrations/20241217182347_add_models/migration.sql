@@ -18,6 +18,7 @@ CREATE TABLE "Project" (
     "url" TEXT NOT NULL DEFAULT '',
     "content" TEXT NOT NULL,
     "slug" TEXT NOT NULL DEFAULT '',
+    "releaseDate" DATETIME,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" DATETIME NOT NULL
 );

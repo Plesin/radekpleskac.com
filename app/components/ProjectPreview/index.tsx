@@ -1,21 +1,22 @@
-import { Link } from '@remix-run/react'
-import Badge from '../Badge'
+import { Link } from "@remix-run/react";
 
-import { ArrowIcon } from '../Icon'
-import { getReleaseDate } from '../../utils'
-import { type IProjectPreviewProps, type TTechnologyOnProject } from '~/types'
+import type { IProjectPreviewProps, TTechnologyOnProject } from "~/types";
+
+import { getReleaseDate } from "../../utils/index";
+import Badge from "../Badge";
+import { ArrowIcon } from "../Icon";
 
 export default function ProjectPreview({
   project,
 }: {
-  project: IProjectPreviewProps
+  project: IProjectPreviewProps;
 }) {
-  const { images, technologies } = project
-  const firstImg = images[0]
-  let releasedDate = getReleaseDate(project.releaseDate)
+  const { images, technologies } = project;
+  const firstImg = images[0];
+  const releasedDate = getReleaseDate(project.releaseDate);
 
   return (
-    <section className="grid grid-cols-1 sm:grid-cols-2 mb-8 bg-base text-dark rounded p-4">
+    <section className="mb-8 grid grid-cols-1 rounded bg-base p-4 text-dark sm:grid-cols-2">
       <div>
         <img
           className="rounded"
@@ -24,26 +25,26 @@ export default function ProjectPreview({
           loading="lazy"
         />
       </div>
-      <div className="md:pl-4 relative">
-        <h2 className="text-2xl font-bold mb-2">{project.title}</h2>
+      <div className="relative md:pl-4">
+        <h2 className="mb-2 text-2xl font-bold">{project.title}</h2>
         <p className="leading-6">{project.description}</p>
         {releasedDate ? (
-          <span className="text-xs text-gray-500 uppercase font-bold">
+          <span className="text-xs font-bold uppercase text-gray-500">
             Released: {releasedDate}
           </span>
         ) : null}
-        <div className="py-2 my-2 border-t border-gray-300">
+        <div className="my-2 border-t border-gray-300 py-2">
           {technologies.map((item: TTechnologyOnProject) => (
             <Badge key={item.technology.id}>{item.technology.name}</Badge>
           ))}
         </div>
         <Link
-          className="inline-flex items-center text-sm text-primary absolute bottom-0 right-0"
+          className="absolute bottom-0 right-0 inline-flex items-center text-sm text-primary"
           to={`/projects/${project.slug}`}
         >
           project detail <ArrowIcon />
         </Link>
       </div>
     </section>
-  )
+  );
 }
