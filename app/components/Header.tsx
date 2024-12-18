@@ -1,6 +1,5 @@
-import { useEffect } from "react";
 import { Link } from "@remix-run/react";
-import { MouseEventHandler, useState } from "react";
+import { MouseEventHandler, useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 const MenuIcon = ({ onClick }: { onClick: MouseEventHandler }): JSX.Element => (
